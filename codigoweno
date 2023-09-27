@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Popup Content</h1>
+
+    <label for="message">Enter a message:</label>
+    <br>
+    <input type="text" id="message">
+    <br>
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+
+            // Envía el mensaje al host (extensión)
+            vscode.postMessage(message);
+        }
+    </script>
+</body>
+
+</html>
